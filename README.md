@@ -33,7 +33,7 @@ Users register an account, log their activities, set a personal weekly emissions
 | F4 | **Activity Logging** | Add, view, and delete emission-producing activities |
 | F5 | **Weekly Emission Summary** | Auto-calculated total for the current week |
 | F6 | **Monthly Emission Summary** | Auto-calculated total for the current month |
-| F7 | **Goal Status Indicator** | Visual ✅ / ❌ feedback based on goal vs. actual |
+| F7 | **Goal Status Indicator** | Visual feedback based on goal vs. actual |
 | F8 | **Group Leaderboard** | Ranks groups by percentage of members who met their goal |
 | F9 | **Activity Comparison Tool** | Compare two activity types side-by-side to show CO₂ savings |
 | F10 | **Historical Trends** | Week-by-week emission history for the past N weeks |
