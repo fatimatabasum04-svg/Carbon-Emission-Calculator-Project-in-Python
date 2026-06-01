@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carbon Tracker - Add Activity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f7f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            background-color: #2d6a2d;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2d6a2d;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #2d6a2d;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #1e4a1e;
+        }
+        .alert {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #1e4a1e;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🌍 Carbon Tracker</h2>
+        <div class="nav-links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/add_activity">Add Activity</a>
+            <a href="/leaderboard">Leaderboard</a>
+            <a href="/compare">Compare</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>➕ Add New Activity</h1>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+        
+        <form method="POST">
+            <label>Activity Type:</label>
+            <select name="type_id" required>
+                {% for activity in activity_types %}
+                    <option value="{{ activity.type_id }}">
+                        {{ activity.type_name }} ({{ activity.default_unit }})
+                    </option>
+                {% endfor %}
+            </select>
+            
+            <label>Quantity:</label>
+            <input type="number" name="quantity" step="0.01" placeholder="Enter quantity" required>
+            
+            <label>Unit:</label>
+            <input type="text" name="unit" placeholder="e.g., km, kWh, liters" required>
+            
+            <label>Date:</label>
+            <input type="date" name="activity_date" required>
+            
+            <button type="submit">Calculate & Save</button>
+        </form>
+    </div>
+</body>
+</html>
