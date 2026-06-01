@@ -194,7 +194,7 @@ The app starts on `http://127.0.0.1:5000` by default. Open that URL in your brow
 3. **Add activities** (e.g., "drove 40 km by car today") from the *Add Activity* page.
 4. Your **dashboard** automatically shows:
    - Weekly and monthly emission totals
-   - Goal status (✅ met / ❌ exceeded)
+   - Goal status
    - Your 5 most recent activities
    - A 4-week historical trend
 5. **Create or join a group** using a shared group code to appear on the leaderboard.
